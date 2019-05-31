@@ -1,0 +1,184 @@
+
+{% extends "base.html" %}
+{% load static %}
+    <section>
+        {% block sectionheaderBtn %}
+        {% if user != 'Login'  %}
+        <div align="center">
+            <div class="dropdown" align="right" >
+                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                 {{ user }}
+                </a>
+
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <a class="dropdown-item" href="{% url 'visitor_booking_page' %}" >Your booking</a>
+                    <a class="dropdown-item" href="{% url 'login_page' %}">exit</a>
+
+                </div>
+            </div>
+        </div>
+        {% endif %}
+        {% if user == 'Login'  %}
+                    <div class="dropdown" align="right" >
+                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                 {{ user }}
+                </a>
+
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <a class="dropdown-item" href="{% url 'login_page' %}" >Login</a>
+                    <a class="dropdown-item" href="{% url 'register_page' %}">Register</a>
+
+                </div>
+            </div>
+        </div>
+
+
+
+
+        {% endif %}
+        {% endblock sectionheaderBtn %}
+    </section>
+
+
+
+    <section>{% block sectionheader %}
+        <section class="caption">
+				<h2 class="caption">Welcome To The Hotel Botviu</h2>
+				<h3 class="properties">Appartements - Houses - Mansions</h3>
+			</section>
+    {% endblock sectionheader %}</section>
+
+
+    {% block section %}
+
+	<h1 class="caption" >    Our Rooms</h1>
+
+	<section class="listings">
+		<div class="wrapper">
+			<ul class="properties_list">
+
+				<li>
+
+					<a href="#">
+						<img src={% static "mainapp/img/vip1.jpg" %} alt="" title="" class="property_img"/>
+					</a>
+					<span class="price">$2500</span>
+					<div class="property_details">
+						<h1>
+							<a href="{% url 'booking_create' type_room='vip' count_person=15 %}"> book a Vip room</a>
+						</h1>
+						<h2>15 person <span class="property_size"></span></h2>
+					</div>
+				</li>
+				<li>
+					<a href="#">
+						<img src={% static "mainapp/img/vip2.jpg" %} alt="" title="" class="property_img"/>
+					</a>
+					<span class="price">$2000</span>
+					<div class="property_details">
+						<h1>
+							<a href="{% url 'booking_create' type_room='vip' count_person=9 %}">book a Vip room</a>
+						</h1>
+						<h2>9 person <span class="property_size"></span></h2>
+					</div>
+				</li>
+				<li>
+					<a href="#">
+						<img src={% static "mainapp/img/vip3.jpg" %} alt="" title="" class="property_img"/>
+					</a>
+					<span class="price">$1700</span>
+					<div class="property_details">
+						<h1>
+							<a href="{% url 'booking_create' type_room='vip' count_person=7%}">book a Vip room</a>
+						</h1>
+						<h2>7 person <span class="property_size"></span></h2>
+					</div>
+				</li>
+				<li>
+					<a href="#">
+						<img src={% static "mainapp/img/premium1.jpg" %} alt="" title="" class="property_img"/>
+					</a>
+					<span class="price">$1200</span>
+					<div class="property_details">
+						<h1>
+							<a href="{% url 'booking_create' type_room='premium' count_person=4%}">book a Premium room</a>
+						</h1>
+						<h2>4 person <span class="property_size"></span></h2>
+					</div>
+				</li>
+				<li>
+					<a href="#">
+						<img src={% static "mainapp/img/premium2.jpg" %} alt="" title="" class="property_img"/>
+					</a>
+					<span class="price">$1000</span>
+					<div class="property_details">
+						<h1>
+							<a href="{% url 'booking_create' type_room='premium' count_person=3%}">book a Premium room</a>
+						</h1>
+						<h2>3 person <span class="property_size"></span></h2>
+					</div>
+				</li>
+				<li>
+					<a href="#">
+						<img src={% static "mainapp/img/premium3.jpg" %} alt="" title="" class="property_img"/>
+					</a>
+					<span class="price">$700</span>
+					<div class="property_details">
+						<h1>
+							<a href="{% url 'booking_create' type_room='premium' count_person=2%}">book a Premium room</a>
+						</h1>
+						<h2>2 person <span class="property_size"></span></h2>
+					</div>
+				</li>
+				<li>
+					<a href="#">
+						<img src={% static "mainapp/img/standart1.jpg" %} alt="" title="" class="property_img"/>
+					</a>
+					<span class="price">$700</span>
+					<div class="property_details">
+						<h1>
+							<a href="{% url 'booking_create' type_room='standart' count_person=3%}">book a Standart room</a>
+						</h1>
+						<h2>3 person <span class="property_size"></span></h2>
+					</div>
+				</li>
+				<li>
+					<a href="#">
+						<img src={% static "mainapp/img/standart2.jpg" %} alt="" title="" class="property_img"/>
+					</a>
+					<span class="price">$500</span>
+					<div class="property_details">
+						<h1>
+							<a href="{% url 'booking_create' type_room='standart' count_person=2%}">book a Standart room</a>
+						</h1>
+						<h2>2 person <span class="property_size"></span></h2>
+					</div>
+				</li>
+				<li>
+					<a href="#">
+						<img src={% static "mainapp/img/standart3.jpg" %} alt="" title="" class="property_img"/>
+					</a>
+					<span class="price">$200</span>
+					<div class="property_details">
+						<h1>
+							<a href="{% url 'booking_create' type_room='standart' count_person=1%}">book a Standart room</a>
+						</h1>
+						<h2>1 person <span class="property_size"></span></h2>
+					</div>
+				</li>
+			</ul>
+
+		</div>
+	</section>	<!--  end listing section  -->
+{% endblock section %}
+
+    <style>
+   .pis{
+    background: #82abd4;
+
+    border: 1px solid blue;
+   }
+   </style>
+	
+</body>
+</html>

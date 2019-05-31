@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ru">
+<head>
+    {% block title %}
+	<title>Hotel Botviu</title>
+    {% endblock title %}
+	<meta charset="utf-8">
+	<meta name="author" content="pixelhint.com">
+	<meta name="description" content="La casa free real state fully responsive html5/css3 home page website template"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="{% static "mainapp/css/reset.css" %}">
+	<link rel="stylesheet" type="text/css" href="{% static "mainapp/css/responsive.css" %}">
+    <section>{% block linkblock %}{% endblock linkblock %}</section>
+	<script type="text/javascript" src="{% static "mainapp/js/jquery.js" %}"></script>
+	<script type="text/javascript" src="{% static "mainapp/js/main.js" %}"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</head>
+<body>
+
+	<section class="hero">
+		<header>
+			<div class="wrapper">
+				<a href="{% url 'mainapp_page' %}"><img src={% static "mainapp/img/logo.png" %} class="logo" alt="" titl=""/></a>
+				<a href="#" class="hamburger"></a>
+				<nav>
+					<ul>
+                        <li><a href="{% url 'bar_page' %}">Bar</a></li>
+						<li><a href="{% url 'photo_page' %}">Photo</a></li>
+						<li><a href="{% url 'contact_page' %}">Contact</a></li>
+					</ul>
+				</nav>
+                <div >
+                        <a>{% block sectionheaderBtn %}{% endblock sectionheaderBtn %}</a><
+                </div>
+			</div>
+		</header><!--  end header section  -->
+        <section>{% block sectionheader %}{% endblock sectionheader %}</section>
+
+	</section><!--  end hero section  -->
+
+
+
+
+	<section>{% block section %}{% endblock section %}</section>
+
+
+	<footer>
+		<div class="wrapper footer">
+			<ul>
+				<li class="links">
+					<ul>
+
+					</ul>
+				</li>
+
+				<li class="links">
+					<ul>
+
+					</ul>
+				</li>
+
+				<li class="links">
+					<ul>
+
+					</ul>
+				</li>
+
+				<li class="about">
+					<p></p>
+					<ul>
+						<li><a href="http://facebook.com/pixelhint" class="facebook" target="_blank"></a></li>
+						<li><a href="http://twitter.com/pixelhint" class="twitter" target="_blank"></a></li>
+						<li><a href="http://plus.google.com/+Pixelhint" class="google" target="_blank"></a></li>
+						<li><a href="#" class="skype"></a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+
+		<div class="copyrights wrapper">
+			Corparation  © 2019 <a href="http://pixelhint.com" target="_blank" class="ph_link" title="Download more free Templates">Pixelhint.com</a>. All Rights Reserved.
+		</div>
+	</footer><!--  end footer  -->
+
+</body>
+
+</html>

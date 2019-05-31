@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sign in</title>
+  </head>
+  <body>
+    <form action="" method="post">
+      {% csrf_token %}
+      <!-- as_p для того, чтобы каждый элемент формы был с новой строки -->
+      {{ form.as_p }}
+      <button type="submit">Sign in</button>
+        <a href="{% url 'register_page' %}"   >To register</a>
+    </form>
+  </body>
+</html>

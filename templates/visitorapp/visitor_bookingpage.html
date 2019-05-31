@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bookings page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="{% static "mainapp/css/reset.css" %}">
+	<link rel="stylesheet" type="text/css" href="{% static "mainapp/css/responsive.css" %}">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+<div class="hero">
+    <header>
+			<div class="wrapper">
+				<a href="{% url 'mainapp_page' %}"><img src={% static "mainapp/img/logo.png" %} class="logo" alt="" titl=""/></a>
+				<a href="#" class="hamburger"></a>
+				<nav>
+					<ul>
+						<li><a href="{% url 'photo_page' %}">Photo</a></li>
+						<li><a href="{% url 'contact_page' %}">Contact</a></li>
+					</ul>
+				</nav>
+                <div >
+                        <a>
+                           <div align="center">
+                            <div class="dropdown" align="right" >
+                                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                 {{ user }}
+                                </a>
+
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <a class="dropdown-item" href="{% url 'visitor_booking_page' %}" >Your booking</a>
+                                    <a class="dropdown-item" href="{% url 'login_page' %}">exit</a>
+
+                                </div>
+                                </div>
+                            </div>
+                        </a>
+                </div>
+			</div>
+    </header><!--  end header section  -->
+<div style="height:700px;width:1200px;overflow-y:scroll;" align="center">
+    <div class="container h-100 con" >
+    <h1 class="mb-5" align="center" style="background: #82abd4">Your bookings</h1>
+        {% for booking in bookings %}
+            <div class="card mycard" align="center">
+                <div class="card-header">
+                    Booking Number: {{ booking.number_booking }}
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">{{ booking.type_room }}</h5>
+                    <p class="card-text">Number room: {{ booking.number_room }}</p>
+                    <p class="card-text">Date:  {{ booking.arrival_date}} - {{ booking.depature_date }}</p>
+                    <p class="card-text">Cost: {{ booking.price }}</p>
+
+
+                    <a href="{% url 'post_booking_page' number_booking=booking.number_booking%}"class="btn btn-primary">cancel reservation</a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+</div>
+</body>
+<style>
+   .con{
+
+
+    margin-left: 25%;
+    width: 50%;
+
+   }
+     .mycard{
+
+    margin-top: 5%;
+   }
+
+
+   </style>
+</html>

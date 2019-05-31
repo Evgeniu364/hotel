@@ -33,6 +33,7 @@ def train_model(data):
 
 
 def machine_learning(request):
+    # дерево выбора
     vistor = Visitor.objects.get(user__username=request.user.username)
     bar = BarOrder.objects.filter(visitor=vistor)
     typedrinks = []
